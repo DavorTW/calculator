@@ -32,7 +32,28 @@ function operate(num1, num2, operator){
     }
 }
 
-let num1;
-let num2;
-let operator;
+let num1 = "";
+let num2 = "";
+let operator = "";
+const numbers = "0123456789";
+const operators = "/*+-";
 
+
+const buttons = document.querySelectorAll(".btn");
+const display = document.querySelector(".display");
+const para = document.createElement("p");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () =>{
+        if (numbers.includes(button.id) && operator === "") {
+            display.textContent = "";
+            num1 = num1.concat(button.id);
+            para.textContent = num1;
+            para.classList.add("number");
+            display.appendChild(para);
+        }else if (operators.includes(button.id) && num1 !== "") {
+            operator = button.id;
+            button.classList.add("active");
+        }
+    })
+})
