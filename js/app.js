@@ -12,9 +12,9 @@ function multiply(num1, num2){
 
 function divide(num1, num2){
     if(num2 === 0){
-        return "You can't divide by 0 you donkey";
+        return "nope";
     }
-    return num1 / num2;
+    return  (num1 / num2).toFixed(3);
 }
 
 function operate(num1, num2, operator){
@@ -83,6 +83,18 @@ buttons.forEach(button => {
             num1 = "";
             num2 = "";
             operator = "";
+        }else if (operators.includes(button.id) && result !== "") {
+            operator = button.id;
+            num1 = result;
+        }else if(button.id === "clear"){
+            result = "";
+            num1 = "";
+            num2 = "";
+            operator = "";
+            display.textContent = "";
+            para.textContent = "0";
+            para.classList.add("number");
+            display.appendChild(para);
         }
     })
 })
