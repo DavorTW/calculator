@@ -95,6 +95,22 @@ buttons.forEach(button => {
             para.textContent = "0";
             para.classList.add("number");
             display.appendChild(para);
+        }else if (button.id === "decimal" && num1 !== "" && operator === "") {
+            if (!num1.includes(".")) {
+                display.textContent = "";
+                num1 = num1.concat(".");
+                para.textContent = num1;
+                para.classList.add("number");
+                display.appendChild(para);
+            }
+        }else if(button.id === "decimal" && operator !=="" && num2 !== ""){
+            if (!num2.includes(".")) {
+                display.textContent = "";
+                num2 = num2.concat(".");
+                para.textContent = num2;
+                para.classList.add("number");
+                display.appendChild(para);
+            }  
         }
     })
 })
